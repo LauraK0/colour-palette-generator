@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+
+.header {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.3em;
+  padding: 15px 0;
+
+}
+
+.title {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 700;
+  margin: 30px;
+  color: rgb(0,0,0);
+}
+
+.start-button {
+  background-color: black;
+  width: 40vw;
+  opacity: 1;
+  border: none;
+  border-radius: 0.5em;
+  color: white;
+  padding: 1em 2em;
+  text-align: center;
+  font-size: 0.8em;
+  margin-bottom: 2em;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.start-button:hover{
+  opacity: 0.8;
+}
+
+/* Colour palette styling */
+
+.colour-palette {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  flex: 1;
+}
+
+.colour-swatch {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.colour-content {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+
+.hex-code {
+  font-size: 1.2em;
+  padding: 20px;
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+.icon {
+  height: 1em;
+  width: 1em;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 20px;
+  transition: 100ms;
+  position:relative;
+  transform: scale(1.5);
+}
+
+.icon:hover {
+  transform: scale(2);
+}
+
+.tooltip {
+  position: absolute;
+  min-width: 100px;
+  padding: 5px 2px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  background: rgb(0, 0, 0, 0.8);
+  color: white;
+  bottom: calc(100% + 5px);
+  left: -100%;
+}
+
+.tooltip-arrow{
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid 5px transparent;
+  border-top-color:rgb(0, 0, 0, 0.8) ;
+  bottom: calc(100% - 5px);
+  right: 30%;
+
+}
+
+/* media queries */
+@media all and (max-width: 800px){
+  .page-header {
+      font-size: 0.8rem;
+  }
+
+  .instructions {
+      font-size: 0.8rem;
+  }
+  .colour-palette {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .colour-swatch{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+  }
+  .colour-content {
+      align-self: flex-start;
+      width: 100px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      padding-right: 10px;
+      flex: 1;
+  }
+}
