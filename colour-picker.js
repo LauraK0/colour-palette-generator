@@ -51,14 +51,17 @@ class Colour {
     const hexCodeTitle = this.element.querySelector(".hex-code").innerHTML;
     console.log(hexCodeTitle)
 
-    navigator.clipboard.writeText(hexCodeTitle);   // Copy the text inside the text field
-    alert("Copied the text: " + hexCodeTitle);  // Alert the copied text
+    navigator.clipboard.writeText(hexCodeTitle).then(() => {
+      // Alert the user that the action took place.
+      // Nobody likes hidden stuff being done under the hood!
+      alert("Copied to clipboard");
+    });
 
     this.element.classList.add("copied");
     setTimeout(() => {
       //This variable removes the class copied from the element after a duration 1000ms
       this.element.classList.remove("copied");
-    }, 1000);
+    }, 10000);
   }
 }
 
@@ -74,15 +77,17 @@ for (let i = 0; i < colour_elements.length; i++) {
 	const colour_element = colour_elements[i];
 
 	const hexCodeTitle = colour_element.querySelector(".hex-code");
-	const lock_toggle = colour_element.querySelector(".lock-button");
-	const copy_btn = colour_element.querySelector(".copy-icon");
+	const lockToggle = colour_element.querySelector(".lock-button");
+	const copyButton = colour_element.querySelector(".copy-icon");
+  const refreshButton = colour_element.querySelector(".refresh-button");
 
 	const hex = hexCodeTitle.value;
 	const colour = new Colour(hex, colour_element);
 
 	hexCodeTitle.addEventListener('.hex-code', (e) => colour.setHex(e.target.value));
-	lock_toggle.addEventListener('click', () => colour.toggleLocked());
-	copy_btn.addEventListener('click', () => colour.copyToClipboard());
+	lockToggle.addEventListener('click', () => colour.toggleLocked());
+	copyButton.addEventListener('click', () => colour.copyToClipboard());
+  refreshButton.addEventListener('click', () => colour.generateHex());
 
 	colour.generateHex();
 	colours.push(colour);
