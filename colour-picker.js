@@ -67,8 +67,6 @@ class Colour {
 
 //end colour object
 
-
-
 const colour_elements = document.querySelectorAll('.colour-palette .colour-swatch');
 
 const colours = [];
@@ -79,7 +77,7 @@ for (let i = 0; i < colour_elements.length; i++) {
 	const hexCodeTitle = colour_element.querySelector(".hex-code");
 	const lockToggle = colour_element.querySelector(".lock-button");
 	const copyButton = colour_element.querySelector(".copy-icon");
-  const refreshButton = colour_element.querySelector(".refresh-button");
+  	const refreshButton = colour_element.querySelector(".refresh-button");
 
 	const hex = hexCodeTitle.value;
 	const colour = new Colour(hex, colour_element);
@@ -87,19 +85,20 @@ for (let i = 0; i < colour_elements.length; i++) {
 	hexCodeTitle.addEventListener('.hex-code', (e) => colour.setHex(e.target.value));
 	lockToggle.addEventListener('click', () => colour.toggleLocked());
 	copyButton.addEventListener('click', () => colour.copyToClipboard());
-  refreshButton.addEventListener('click', () => colour.generateHex());
+ 	refreshButton.addEventListener('click', () => colour.generateHex());
 
 	colour.generateHex();
 	colours.push(colour);
 }
 
-
+//generate palette by clicking button
 document.querySelector(".start-button").addEventListener("click", () => {
 	for (let i = 0; i < colours.length; i++) {
 		colours[i].generateHex();
 	}
 });
 
+//generate palette by pressing spacebar
 document.addEventListener("keydown", (e) => {
   if (e.code.toLowerCase() === "space") {
     for (let i = 0; i < colours.length; i++) {
@@ -109,3 +108,17 @@ document.addEventListener("keydown", (e) => {
 })
 
 
+//dropdown menu
+function dropdownMenu() {
+	document.getElementById("myDropdown").classList.toggle("show");
+	document.activeElement.blur();
+  }
+  
+
+function saveDynamicDataToFile() {
+
+	var userInput = document.getElementById("myText").value;
+	
+	var blob = new Blob([userInput], { type: "text/plain;charset=utf-8" });
+	saveAs(blob, "dynamic.txt");
+}

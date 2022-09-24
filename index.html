@@ -12,16 +12,26 @@
     <header class="header">
         <h1 class="title">Colour Palette Generator</h1>
     </header>
-    
-    <div class="header"> 
-      <button class="start-button">Generate palette</button>
+
+
+
+    <div class="sub-header"> 
+        <div class="dropdown">
+            <button onclick="dropdownMenu()" class="button"><i class="fa-solid fa-gear"></i></button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#">Auto</a>
+              <a href="#base">Monochromatic</a>
+              <a href="#blog">Split Complimentary</a>
+              <a href="#contact">Complimentary</a>
+              <a href="#custom">Tradic</a>
+              <a href="#support">Tetratic</a>
+              <a href="#tools">Analogous Schemes</a>
+            </div>
+          </div>
+        <button class="start-button">GENERATE</button>
+        <button class="button" onclick="saveDynamicDataToFile();"><i class="fa-solid fa-file-export"></i></button>
     </div>  
 
-    <div class="header"> 
-        <button class="save-button">Save Palette</button>
-      </div>  
-      
-    
     <div class="colour-palette">
    
         <div  id="colour-one" class="colour-swatch" data-status="unlocked">
