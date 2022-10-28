@@ -106,8 +106,6 @@ body {
 }
 
 .icon {
-  height: 1em;
-  width: 1em;
   cursor: pointer;
   background: none;
   border: none;
